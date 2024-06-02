@@ -52,7 +52,9 @@ class Controller {
         renamed: +newRenamed,
         // fibonumber: 3,
       });
-    } else {
+    } else if(renamed === 1) {
+      
+    }else {
       let newNickname = nickname + "-0";
       let renamed1 = 1;
       res.json({ nickname: newNickname, renamed: +renamed1 });

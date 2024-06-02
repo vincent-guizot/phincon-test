@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -25,25 +25,60 @@ function Detail() {
   }, [dispatch]);
 
   return (
-    <div className="w-100">
+    <div className="detail w-100">
       <div className="container">
-        <div className="row">
+        <div className="row p-2">
           {character ? (
             <>
               <div className="col-3">
-                <img
-                  className="img-fluid"
-                  src={character.sprites.front_default}
-                />
-                {/* {JSON.stringify(character.sprites.front_default)} */}
+                <div className="row">
+                  <div className="col-12">
+                    <div className="detail_img">
+                      <img className="img-fluid" src={character.sprites.front_default} alt="" />
+                    </div>
+                  </div>
+                  <div className="col-4">
+                    <img className="img-fluid" src={character.sprites.back_default} alt="" />
+                  </div>
+                  <div className="col-4">
+                    <img className="img-fluid" src={character.sprites.back_shiny} alt="" />
+                  </div>
+                  <div className="col-4">
+                    <img className="img-fluid" src={character.sprites.front_shiny} alt="" />
+                  </div>
+                  <div className="col-4">
+                    <img className="img-fluid" src={character.sprites.back_female} alt="" />
+                  </div>
+                  <div className="col-4">
+                    <img className="img-fluid" src={character.sprites.back_shiny_female} alt="" />
+                  </div>
+
+                  <div className="col-4">
+                    <img className="img-fluid" src={character.sprites.front_female} alt="" />
+                  </div>
+
+                  <div className="col-4">
+                    <img className="img-fluid" src={character.sprites.front_shiny_female} alt="" />
+                  </div>
+                </div>
               </div>
-              <div className="col-9">
-                <button
-                  onClick={catchPokemon}
-                  className="btn btn-sm btn-success"
-                >
-                  + CATCH POKEMON!
-                </button>
+              <div className="info col-9">
+                <div className="row">
+                  <div className="col-12">
+                    <h1>{character.name.toUpperCase()}</h1>
+                    <button
+                      onClick={catchPokemon}
+                      className="btn btn-sm btn-success my-1"
+                    >
+                      + CATCH POKEMON!
+                    </button>
+                    <hr />
+                  </div>
+                  <div className="12">
+                    <p>Height: {character.height}</p>
+                    <p>Weight: {character.weight}</p>
+                  </div>
+                </div>
               </div>
             </>
           ) : (

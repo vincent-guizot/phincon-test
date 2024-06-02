@@ -53,8 +53,13 @@ function MyPokemon() {
 
   return (
     <div className="w-100">
-      <div className="w-25 m-auto">
-        <h3>My Pokemons</h3>
+      <div className="text-center my-2">
+        <h3 className="font-weight-bold">My Pokemons</h3>
+        <p>
+          This page shows pokemons you have already caught, you can Release it
+          or Rename it.
+        </p>
+        <hr />
       </div>
       {mypokemons.length > 0 ? (
         <>
@@ -74,7 +79,7 @@ function MyPokemon() {
                   <tr>
                     <td>{id}</td>
                     <td>
-                      <img src={character.sprites.front_default} />
+                      <img src={character.sprites.front_default} alt="img" />
                     </td>
                     <td>{nickname}</td>
                     <td>
@@ -99,7 +104,7 @@ function MyPokemon() {
           </table>
         </>
       ) : (
-        <h3>Loading Data</h3>
+        <h3 className="text-center">You have not caught a pokemon!!</h3>
       )}
     </div>
   );

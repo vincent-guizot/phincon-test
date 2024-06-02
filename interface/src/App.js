@@ -7,17 +7,15 @@ import { Provider } from "react-redux";
 import store from "./redux";
 
 import Header from "./components/Header.js";
-import Footer from "./components/Footer.js";
 import Content from "./components/Content.js";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div className="main-content container-fluid">
+        <div className="main-content w-100">
           <Header></Header>
           <Content></Content>
-          {/* <Footer></Footer> */}
         </div>
       </BrowserRouter>
     </Provider>

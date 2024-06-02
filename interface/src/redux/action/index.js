@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 // Actions Types
 // GET_POKEMONS_REQUEST, GET_POKEMONS_SUCCESS, CATCH_POKEMON, RELEASE_POKEMON, RENAME_POKEMON
@@ -74,8 +75,8 @@ const fetchPokemons = () => {
         });
         return character;
       });
-      console.log(characters)
-      dispatch(getPokemonsSuccess(characters))
+      console.log(characters);
+      dispatch(getPokemonsSuccess(characters));
     } catch (err) {
       console.log(err);
     }
@@ -107,13 +108,17 @@ const catchPokemonHandler = (id, character) => {
             character,
           })
         );
-        console.log({
-          nickname,
-          renamed: 0,
-          character,
-        });
+        Swal.fire(
+          "Pokemon Caught!!",
+          "You get a score of " + probability.data.number,
+          "success"
+        );
       } else {
-        alert("Not Caught");
+        Swal.fire(
+          "Pokemon Not Caught",
+          "You get a score of " + probability.data.number,
+          "error"
+        );
       }
     } catch (err) {
       alert(err);
@@ -126,10 +131,14 @@ const releasePokemonHandler = (data) => {
     try {
       let factors = await axios.get("http://localhost:3000/release");
       if (factors.data.factors === 2) {
-        alert("Release");
+        Swal.fire("Pokemon Released", "You have a Prime Number", "success");
         dispatch(releasePokemon(data));
       } else {
-        alert("Not Released");
+        Swal.fire(
+          "Pokemon Not Relesed",
+          "You do not get a Prime Number",
+          "error"
+        );
       }
     } catch (err) {
       console.log(err);

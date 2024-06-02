@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPokemons } from "../redux/action";
 
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function List() {
   const dispatch = useDispatch();
   const pokemons = useSelector((state) => state.characters.characters);
-  
+
   useEffect(() => {
     dispatch(fetchPokemons());
   }, [dispatch]);
@@ -31,9 +31,7 @@ function List() {
                 return (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>
-                      <img src={image}/>
-                    </td>
+                    <td>{image ? <img src={image} alt=""/> : <p>-</p>}</td>
                     <td>{name}</td>
                     <td>
                       <Link
@@ -50,8 +48,7 @@ function List() {
           ) : (
             <tr className="text-center">
               <td colSpan="3">
-                
-              <h3>Load Data</h3>
+                <h3>Load Data</h3>
               </td>
             </tr>
           )}

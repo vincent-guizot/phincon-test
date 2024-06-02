@@ -6,8 +6,24 @@ body {
 
 .main-content {
   background-color: white;
+  min-height: 100vh;
+  background: burlywood;
+}
+
+.detail {
+  background-color: white;
+}
+.info {
+  border-left: 2px solid gray;
+}
+.detail_img {
+  border: 2px solid gray;
+  border-radius: 1rem;
+}
+.detail_img img {
+  width: 100%;
 }
 
 .header img {
-  width: 150px;
+  width: 100px;
 }
