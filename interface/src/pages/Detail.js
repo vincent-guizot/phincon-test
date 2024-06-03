@@ -74,22 +74,23 @@ function Detail() {
                     </button>
                     <hr />
                   </div>
-                  <div className="col-6" >
+                  <div className="col-12" >
+                    <h3><strong>Moves</strong></h3>
                     <table className="table table-bordered">
                       <thead>
                         <tr>
-                          <th>Slot</th>
-                          <th>Type</th>
+                          <th>No</th>
+                          <th>Move </th>
                         </tr>
                       </thead>
                       <tbody>
                         {
-                          character.types.map(char => {
-                            const {slot,type} = char
+                          character.moves.map((char,index) => {
+                            const {move} = char
                             return (
                             <tr>
-                              <td>{slot}</td>
-                              <td>{type.name}</td>
+                              <td>{index+1}</td>
+                              <td>{move.name}</td>
                             </tr>
                             )
                           })
@@ -97,7 +98,8 @@ function Detail() {
                       </tbody>
                     </table>
                   </div>
-                  <div className="col-6" >
+                  <div className="col-12" >
+                    <h3>Types</h3>
                     <table className="table table-bordered">
                       <thead>
                         <tr>
