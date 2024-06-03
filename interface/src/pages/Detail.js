@@ -74,7 +74,54 @@ function Detail() {
                     </button>
                     <hr />
                   </div>
-                  <div className="12">
+                  <div className="col-6" >
+                    <table className="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Slot</th>
+                          <th>Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {
+                          character.types.map(char => {
+                            const {slot,type} = char
+                            return (
+                            <tr>
+                              <td>{slot}</td>
+                              <td>{type.name}</td>
+                            </tr>
+                            )
+                          })
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="col-6" >
+                    <table className="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Slot</th>
+                          <th>Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {
+                          character.types.map(char => {
+                            const {slot,type} = char
+                            return (
+                            <tr>
+                              <td>{slot}</td>
+                              <td>{type.name}</td>
+                            </tr>
+                            )
+                          })
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="col-12">
                     <p>Height: {character.height}</p>
                     <p>Weight: {character.weight}</p>
                   </div>
