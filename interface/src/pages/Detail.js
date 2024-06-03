@@ -99,7 +99,7 @@ function Detail() {
                     </table>
                   </div>
                   <div className="col-12" >
-                    <h3>Types</h3>
+                    <h3><strong>Types</strong></h3>
                     <table className="table table-bordered">
                       <thead>
                         <tr>
